@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 /**
  * env_main - prints environment variables
  * Return: 0 on success
