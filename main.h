@@ -48,7 +48,7 @@ char *strduplicate(char *s);
 int strcomparer(char *s1, char *s2);
 char *strconk(char *dest, char *src);
 int spaces_finder(char *buffer);
-int lennum(int n);
+int len_num(int n);
 char *int_to_charac(int num);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *s);
@@ -62,6 +62,6 @@ char *_strcpy(char *dest, char *src);
 void error_falsecommand(char **args, char *buffer);
 char **args_construct(char *buffer);
 void valid_getline(char *buffer, int len, char **args, char **env_args);
-int notty(char **av __attribute__((unused)));
+int noutty(char **av __attribute__((unused)));
 
 #endif /*SIMPLESHELL*/
