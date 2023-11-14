@@ -25,14 +25,14 @@ typedef struct builtin
 	int (*b_func)();
 } builtin_struct;
 
-int (*find_builtins(char *user_input))();
+int (*builtin_main(char *user_input))();
 int exit_func(void);
 int env_func(void);
-void change_equal_sig(char *str);
+void modify_sig(char *str);
 char *ret_path_line();
-void error_msg(char **args);
+void error_message(char **args);
 char **get_path(char *args);
-char *_insert_path(char **args, char **path);
+char *fix_path(char **args, char **path);
 char **getenvpath(void);
 void freedom(int n, ...);
 int non_interactive_mode(char **av);
@@ -47,21 +47,21 @@ int strlarge(char *s);
 char *strduplicate(char *s);
 int strcomparer(char *s1, char *s2);
 char *strconk(char *dest, char *src);
-int spaces_buster(char *buffer);
+int spaces_finder(char *buffer);
 int lennum(int n);
 char *int_to_charac(int num);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *s);
 char *_itoa(int num);
 char *_strstr(char *x, char *y);
-int _compare(char *x, char *y);
+int check_compare(char *x, char *y);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, size_t n);
 char *_strcpy(char *dest, char *src);
-void error_badcommand(char **args, char *buffer);
-char **args_constructor(char *buffer);
-void validagetline(char *buffer, int len, char **args, char **env_args);
+void error_falsecommand(char **args, char *buffer);
+char **args_construct(char *buffer);
+void valid_getline(char *buffer, int len, char **args, char **env_args);
 int notty(char **av __attribute__((unused)));
 
 #endif /*SIMPLESHELL*/
