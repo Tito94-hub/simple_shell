@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * initiate_main - provides a loop that execute command lines entered
+ * interactive_main - provides a loop that execute command lines entered
  * @av: argument from main
  * Return: Exit / Error Code
 */
-int_initiate(char **av __attribute__((unused)))
+int_interactive(char **av __attribute__((unused)))
 {
 	size_t bufsiz;
 	char *buffer = NULL;
@@ -17,13 +17,13 @@ int_initiate(char **av __attribute__((unused)))
 	{
 		write(STDOUT_FILENO, "($) ", 4);
 		getline(&buffer, &bufsiz, stdin);
-		validagetline(buffer, 0, u_command, env_args);
+		validgetline(buffer, 0, u_command, env_args);
 		if (buffer[0] == 10 || buffer[0] == 9)
 			continue;
 		u_command = args_construct(buffer);
 		if (u_command == NULL)
 			continue;
-		b_func = builtin_main(*u_command);
+		b_func = builtin(*u_command);
 		if (b_func)
 		{
 			if (b_func == exit_func)
@@ -41,7 +41,7 @@ int_initiate(char **av __attribute__((unused)))
 		else
 			exec_c(full_command, u_command);
 		freedom(1, buffer), buffer = NULL;
-		freedom(2, user_command), u_command = NULL;
+		freedom(2, u_command), u_command = NULL;
 		freedom(2, env_args), env_args = NULL;
 	}
 	return (0);
