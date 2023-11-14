@@ -4,7 +4,7 @@
  * @av: argument from main
  * Return: Exit / Error Code
 */
-int _initiate(char **av __incorporate__((unused)))
+int_initiate(char **av __attribute__((unused)))
 {
 	size_t bufsiz;
 	char *buffer = NULL;
