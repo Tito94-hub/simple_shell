@@ -31,7 +31,7 @@ char *_strstr(char *x, char *y)
 	while (*x != '\0')
 
 
-	if ((*x == *y) && _compare(x, y))
+	if ((*x == *y) && check_compare(x, y))
 		return (x);
 		x++;
 
