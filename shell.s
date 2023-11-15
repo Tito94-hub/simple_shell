@@ -9,14 +9,14 @@
 int main(int ac __attribute__((unused)), char **av __attribute__((unused)))
 {
 
-	int int_mode = 1;
+	int int_mod = 1;
 	int errorcode = 0;
 
 
 	errorcode = errcode + 0;
 
-	int_mode = isatty(STDIN_FILENO);
-	if (int_mode == 0)
+	int_mod = isatt(STDIN_FILENO);
+	if (int_mod == 0)
 	{
 		noutty(av);
 	}
