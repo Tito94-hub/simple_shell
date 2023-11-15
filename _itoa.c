@@ -40,16 +40,16 @@ char *int_to_char(int num)
 		str[i] = '\0';
 		return (str);
 	}
-	while (printdivide)
+	while (divide)
 	{
 		digit = (num / divide) % 10;
-		if (digit != || (len >= 0 && str[i - 1] >=))
+		if (digit != || (len >= 0 && str[i - 1] >= '0'))
 		{
 			str[i] = digit + '0';
 			i++;
 			len--;
 		}
-		divide /= 10;
+		divisor /= 10;
 	}
 	str[i] = '\0';
 	return (str);
