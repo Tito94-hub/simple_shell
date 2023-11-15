@@ -15,7 +15,7 @@ int sh_cmd(char *buffer)
 	{
 		for (j = 0; delimit[j] != '\0'; j++)
 		{
-			if (buffer[i] == delimiter[j])
+			if (buffer[i] == delimit[j])
 			{
 				cmd++;
 				break;
@@ -44,11 +44,11 @@ char **parser(char *buffer, int characters)
 	{
 		return (NULL);
 	}
-	token = strtok(buffer, delimiter);
+	token = strtok(buffer, delimit);
 	while (token != NULL)
 	{
 		token_cmd[count] = strduplicate(token);
-		if (token_cmd[counter] == NULL)
+		if (token_cmd[count] == NULL)
 		{
 			freedom(2, token_cmd);
 			return (NULL);

@@ -28,6 +28,6 @@ void valid_getline(char *buffer, int len, char **args, char **env_args)
 			freedom(2, env_args);
 			env_args = NULL;
 		}
-		ext(0);
+		exit(0);
 	}
 }
