@@ -16,7 +16,7 @@ int noutty(char **av __attribute__((unused)))
 
 	while ((len = getline(&buffer, &bufsiz, stdin)) > 0)
 	{
-		validagetline(buffer, len, u_command, env_args);
+		valid_getline(buffer, len, u_command, env_args);
 		if (buffer[0] == 10 || buffer[0] == 9)
 			continue;
 		u_command = args_construct(buffer);
@@ -34,7 +34,7 @@ int noutty(char **av __attribute__((unused)))
 		env_args = getenvpath();
 		if (env_args == NULL)
 			return (-1);
-		full_command = _insert_path(u_command, env_args);
+		full_command = fix_path(u_command, env_args);
 		if (full_command == NULL)
 			write(STDOUT_FILENO, "command NOT found\n", 18);
 		else
