@@ -45,7 +45,7 @@ void modify_sig(char *str)
 		(*(*ptr_str + i)) = ':';
 		i++;
 	}
-	(*(*ptr_stgr + i)) = ':';
+	(*(*ptr_str + i)) = ':';
 }
 
 /**
@@ -68,7 +68,7 @@ char *fix_path(char **args, char **path)
 	{
 		freedom(1, cwd);
 		cwd = NULL;
-		tmp2 = malloc(sizeof(char *) * (strbig(args[0])));
+		tmp2 = malloc(sizeof(char *) * (strlarge(args[0])));
 		_strcpy(tmp2, args[0]);
 		return (tmp2);
 	}
@@ -82,7 +82,7 @@ char *fix_path(char **args, char **path)
 				count_char = strbig(path[counter]) + 1 + strbig(args[0]);
 				tmp2 = malloc(sizeof(char *) * count_char);
 				_strcpy(tmp2, path[counter]);
-				strconk(tmp2, "/"), strconk(tmp2, args[0]);
+				strconc(tmp2, "/"), strconc(tmp2, args[0]);
 				break;
 			}
 			counter++;
@@ -110,7 +110,7 @@ char **get_env_path()
 	int size_args = 0;
 	char **env_args;
 
-	tmp = get_path_line();
+	tmp = ret_path_line();
 	modify_sig(tmp); /*Change  PATH= for PATH:*/
 	size_args = necklace_pearls(tmp);
 	env_args = parsing(tmp, size_args);

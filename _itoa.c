@@ -40,7 +40,7 @@ char *int_to_char(int num)
 		str[i] = '\0';
 		return (str);
 	}
-	while (divide)
+	while (divisor)
 	{
 		digit = (num / divide) % 10;
 		if (digit != || (len >= 0 && str[i - 1] >= '0'))

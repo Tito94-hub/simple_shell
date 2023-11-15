@@ -17,13 +17,13 @@ int_interactive(char **av __attribute__((unused)))
 	{
 		write(STDOUT_FILENO, "($) ", 4);
 		getline(&buffer, &bufsiz, stdin);
-		validgetline(buffer, 0, u_command, env_args);
+		valid_getline(buffer, 0, u_command, env_args);
 		if (buffer[0] == 10 || buffer[0] == 9)
 			continue;
 		u_command = args_construct(buffer);
 		if (u_command == NULL)
 			continue;
-		b_func = builtin(*u_command);
+		b_func == builtin_main(*u_command);
 		if (b_func)
 		{
 			if (b_func == exit_func)
@@ -39,7 +39,7 @@ int_interactive(char **av __attribute__((unused)))
 		if (full_command == NULL)
 			write(STDOUT_FILENO, "command NOT found\n", 18);
 		else
-			exec_c(full_command, u_command);
+			exec(full_command, u_command);
 		freedom(1, buffer), buffer = NULL;
 		freedom(2, u_command), u_command = NULL;
 		freedom(2, env_args), env_args = NULL;
